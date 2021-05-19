@@ -1,7 +1,16 @@
 <template>
   <div class="hello">
+    <myheader></myheader>
     <h1>{{ msg }}</h1>
-    <p>
+    <!-- <p v-if="msg.length > 0">
+      {{msg}}
+    </p>
+    <p v-else>
+      no text
+    </p> -->
+    <input type="text" v-model="msg">
+    <button @click="clear()">clear</button> 
+    <!-- <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
@@ -26,16 +35,32 @@
       <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
 <script>
+// export default {
+  //   name: 'HelloWorld',
+//   props: {
+  //     msg: String
+//   }
+// }
+  import myheader from './myheader'
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+  components: {
+    myheader
+  },
+ data() {
+   return {
+     msg: 'Hello World!!'
+   }
+ },
+ methods: {
+   clear() {
+     this.msg = ''
+   }
+ }
 }
 </script>
 
